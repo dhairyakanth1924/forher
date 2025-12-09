@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>I'm Sorry ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #ffe1f2 0, #f3e7ff 40%, #fef6e4 100%);
+      overflow: hidden;
+    }
+
+    /* Floating hearts in background */
+    .heart {
+      position: fixed;
+      font-size: 20px;
+      opacity: 0.6;
+      animation: floatUp 12s linear infinite;
+      pointer-events: none;
+    }
+
+    .heart:nth-child(1) { left: 10%; animation-duration: 12s; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 25%; animation-duration: 9s; animation-delay: 2s; }
+    .heart:nth-child(3) { left: 40%; animation-duration: 11s; animation-delay: 1s; }
+    .heart:nth-child(4) { left: 60%; animation-duration: 10s; animation-delay: 3s; }
+    .heart:nth-child(5) { left: 80%; animation-duration: 13s; animation-delay: 0.5s; }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.8);
+        opacity: 0;
+      }
+      10% { opacity: 0.7; }
+      100% {
+        transform: translateY(-20vh) scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      width: min(420px, 90vw);
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 24px;
+      padding: 24px 22px 30px;
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(255, 192, 203, 0.5);
+      backdrop-filter: blur(16px);
+      text-align: center;
+      position: relative;
+    }
+
+    .top-heart {
+      position: absolute;
+      top: -26px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #ff6f91, #ff9472);
+      width: 52px;
+      height: 52px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(255, 105, 135, 0.45);
+      animation: pulse 1.8s infinite ease-in-out;
+    }
+
+    .top-heart span {
+      font-size: 24px;
+      color: #fff;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 10px 25px rgba(255, 105, 135, 0.45);
+      }
+      50% {
+        transform: translateX(-50%) scale(1.12);
+        box-shadow: 0 14px 30px rgba(255, 105, 135, 0.6);
+      }
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-size: 1.6rem;
+      color: #1d1028;
+    }
+
+    .name-highlight {
+      background: linear-gradient(120deg, #ff758c, #ff7eb3);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      margin-top: 4px;
+      margin-bottom: 18px;
+      font-size: 0.9rem;
+      color: #7a637a;
+    }
+
+    .typewriter-box {
+      background: #fff4f9;
+      border-radius: 16px;
+      padding: 14px 12px;
+      border: 1px dashed rgba(255, 143, 178, 0.8);
+      min-height: 72px;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      color: #3d243f;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #typewriter::after {
+      content: "|";
+      position: relative;
+      margin-left: 2px;
+      animation: blink 0.8s infinite;
+      font-weight: 600;
+      color: #ff4b82;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+
+    .memory-box {
+      margin-top: 16px;
+      background: #f7f3ff;
+      border-radius: 16px;
+      padding: 14px 12px 12px;
+      border: 1px solid rgba(166, 135, 255, 0.4);
+      text-align: left;
+    }
+
+    .memory-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9a7ad9;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    #memory-text {
+      font-size: 0.9rem;
+      color: #3c295f;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    button {
+      border: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, #ff6f91, #ff9472);
+      color: white;
+      box-shadow: 0 8px 22px rgba(255, 111, 145, 0.55);
+      font-weight: 600;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(255, 111, 145, 0.65);
+    }
+
+    .btn-soft {
+      background: #ffe8f3;
+      color: #7b4a7e;
+      border: 1px solid rgba(255, 143, 178, 0.6);
+      font-weight: 500;
+    }
+
+    .btn-soft:hover {
+      background: #ffe0ef;
+      transform: translateY(-1px);
+    }
+
+    .footer-text {
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: #9b7e9f;
+    }
+
+    .footer-text span {
+      font-weight: 600;
+      color: #ff4b82;
+    }
+
+    @media (max-width: 400px) {
+      .container {
+        padding: 20px 16px 24px;
+      }
+      h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- floating hearts -->
+  <div class="heart">💗</div>
+  <div class="heart">💕</div>
+  <div class="heart">💖</div>
+  <div class="heart">💘</div>
+  <div class="heart">💞</div>
+
+  <div class="container">
+    <div class="top-heart">
+      <span>❤️</span>
+    </div>
+
+    <!-- 👉 change HER NAME and YOUR NAME here -->
+    <h1>Hey <span class="name-highlight">Mansiiiiiiiii</span>, I'm Sorry…</h1>
+    <p class="subtitle">
+      I messed up. But my heart is still completely, hopelessly yours. 💌
+    </p>
+
+    <div class="typewriter-box">
+      <div id="typewriter"></div>
+    </div>
+
+    <div class="memory-box">
+      <div class="memory-title">one little memory of us</div>
+      <div id="memory-text">
+        Tap the button below, I saved some tiny pieces of our story here. 🌙
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button class="btn-main" id="memory-btn">
+        💫 Show me a memory
+      </button>
+      <button class="btn-soft" id="hug-btn">
+        🤍 Virtual hug for you
+      </button>
+    </div>
+
+    <p class="footer-text">
+      Made with <span>love</span> (and a little bit of code) by <span>bachaa(dhairya)</span>.
+    </p>
+  </div>
+
+  <script>
+    // 👉 Edit this apology message if you want
+    const apologyText =
+      "I am really, genuinely sorry for hurting you. " +
+      "You mean so much to me, and the last thing I ever want is to see you upset because of me. " +
+      "I promise to listen better, love you better, and never stop trying to make you smile again. 💖";
+
+    const typewriterElement = document.getElementById("typewriter");
+    let index = 0;
+
+    function typeWriter() {
+      if (index < apologyText.length) {
+        typewriterElement.textContent += apologyText.charAt(index);
+        index++;
+        setTimeout(typeWriter, 35); // typing speed
+      }
+    }
+
+    typeWriter();
+
+
+    const memories = [
+      "The way you smile when you’re trying not to smile… that’s my favourite version of you.",
+      "Remember our late-night chats? Somehow you always make even the worst days feel soft.",
+      "Every time you call my bachaa, it feels like the world becomes a little bit safer.",
+      "I still remember the first time I realised, ‘oh no, I’m actually falling for this person.’ It was you.",
+      "If I could replay one moment on loop, it would be us laughing at something completely stupid and forgetting the world."
+    ];
+
+    const memoryTextEl = document.getElementById("memory-text");
+    const memoryBtn = document.getElementById("memory-btn");
+    const hugBtn = document.getElementById("hug-btn");
+    let memoryIndex = 0;
+
+    memoryBtn.addEventListener("click", () => {
+      memoryTextEl.textContent = memories[memoryIndex];
+      memoryIndex = (memoryIndex + 1) % memories.length;
+      memoryBtn.textContent = "💫 Show another memory";
+    });
+
+    hugBtn.addEventListener("click", () => {
+    window.open("myhugvideo.mp4", "_blank");
+});
+  </script>
+</body>
+</html>
+
